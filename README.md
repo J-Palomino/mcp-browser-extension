@@ -23,9 +23,52 @@ Browser MCP is an MCP server + Chrome extension that allows you to automate your
 - 👤 Logged In: Uses your existing browser profile, keeping you logged into all your services.
 - 🥷🏼 Stealth: Avoids basic bot detection and CAPTCHAs by using your real browser fingerprint.
 
+## Chrome Extension Deployment
+
+This repository has been enhanced to support deployment as a Chrome extension! 🎉
+
+### Quick Start
+
+1. **Build the Extension**:
+   ```bash
+   npm install
+   node build-extension.js
+   ```
+
+2. **Install in Chrome**:
+   - Open Chrome and navigate to `chrome://extensions/`
+   - Enable "Developer mode" (toggle in top right)
+   - Click "Load unpacked"
+   - Select the `dist/extension` folder
+
+3. **Connect and Use**:
+   - Click the Browser MCP extension icon in the toolbar
+   - Click "Connect" to start the MCP server
+   - Configure your MCP client (like Claude Desktop) to connect to `http://127.0.0.1:12306/mcp`
+
+### Extension Features
+
+- 🔌 **One-Click Connection**: Simple popup interface to start/stop the MCP server
+- 🌐 **Full Browser Control**: Complete automation capabilities through MCP tools
+- 📸 **Advanced Screenshots**: Capture full pages or specific elements
+- 🖱️ **Smart Interactions**: Click, type, and navigate with AI precision
+- 📄 **Content Analysis**: Extract and analyze page content intelligently
+- 🔍 **Element Discovery**: Automatically find interactive elements
+- 🔒 **Privacy-First**: All processing happens locally on your machine
+
+### Architecture
+
+The extension consists of:
+- **Background Service Worker**: Manages the MCP server and WebSocket connections
+- **Content Scripts**: Handle DOM interactions and page manipulation
+- **Popup Interface**: User-friendly controls for connection management
+- **Injected Scripts**: Enhanced page interaction capabilities
+
+See [EXTENSION_README.md](./EXTENSION_README.md) for detailed documentation.
+
 ## Contributing
 
-This repo contains all the core MCP code for Browser MCP, but currently cannot yet be built on its own due to dependencies on utils and types from the monorepo where it's developed.
+This repository now includes both the original MCP server code and a complete Chrome extension implementation. The missing workspace dependencies have been resolved with local implementations.
 
 ## Credits
 

@@ -11,9 +11,14 @@
     "outDir": "dist",
     "rootDir": "src",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@repo/config/*": ["./lib/config/*"],
+      "@repo/utils": ["./lib/utils/index"],
+      "@repo/messaging/*": ["./lib/messaging/*"],
+      "@repo/types/*": ["./lib/types/*"],
+      "@r2r/messaging/*": ["./lib/messaging/*"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "lib/**/*.ts", "extension/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .status.connected {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .status.disconnected {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .button.primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .button.secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .button:hover {
+      opacity: 0.8;
+    }
+    .info {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>Browser MCP</h2>
+  </div>
+  
+  <div id="status" class="status disconnected">
+    Disconnected
+  </div>
+  
+  <button id="connectBtn" class="button primary">Connect</button>
+  <button id="disconnectBtn" class="button secondary" style="display: none;">Disconnect</button>
+  
+  <div class="info">
+    <p><strong>WebSocket Port:</strong> <span id="port">12306</span></p>
+    <p><strong>MCP Server:</strong> <span id="serverStatus">Stopped</span></p>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

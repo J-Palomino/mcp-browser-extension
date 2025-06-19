@@ -15,9 +15,13 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "build": "tsup src/index.ts --format esm && shx chmod +x dist/*.js",
+    "build:extension": "npm run build:mcp && npm run copy:extension",
+    "build:mcp": "tsup src/index.ts --format esm --target chrome91 --platform browser",
+    "copy:extension": "shx cp -r extension/* dist/extension/ && shx mkdir -p dist/extension",
     "prepare": "npm run build",
     "watch": "tsup src/index.ts --format esm --watch ",
-    "inspector": "CLIENT_PORT=9001 SERVER_PORT=9002 pnpx @modelcontextprotocol/inspector node dist/index.js"
+    "inspector": "CLIENT_PORT=9001 SERVER_PORT=9002 pnpx @modelcontextprotocol/inspector node dist/index.js",
+    "package:extension": "npm run build:extension && cd dist && zip -r browser-mcp-extension.zip extension/"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
